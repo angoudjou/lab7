@@ -53,31 +53,36 @@ namespace Lab7
 
                     while (continue_details)
                     {
-                        Console.WriteLine("What would you like to know about " + student.Name + "?");
+                        Console.Write("What would you like to know about " + student.Name + "? ");
                         string detail = Console.ReadLine();
+                        Console.WriteLine();
                         switch (detail.ToLower())
                         {
                             case "food":
                             case "eat":
-                                Console.WriteLine(student.Name + "likes " + student.Food);
+                                Console.WriteLine(student.Name + " likes " + student.Food);
                                 break;
                             case "hometown":
                             case "home":
                             case "town":
                             case "home-town":
                             case "home town":
-                                Console.WriteLine(student.Name + "lives in " + student.HomeTown);
+                                Console.WriteLine(student.Name + " lives in " + student.HomeTown);
                                 break;
                             default:
-                                Console.WriteLine("The data doesn't exist please enter hometown or food");
+                                Console.WriteLine("Sorry, the data doesn't exist please enter \"hometown\" or \"food\"");
                                 break;
                         }
-                        Console.WriteLine(" would you like to know more?(Y/N)");
-                        continue_details = Console.ReadKey().Key == ConsoleKey.Y;
+                        Console.Write("Would you like to know more?(Y/N) : ");
+                        string response = Console.ReadLine().ToLower();
+                        continue_details = (response == "y"|| response == "yes");
+                        Console.WriteLine();
                     }
                     Console.WriteLine();
-                    Console.Write("Would you like to know more students? (Y/N)");
-                    continue_student = Console.ReadKey().Key == ConsoleKey.Y;
+                    Console.Write("Would you like to know more students? (Y/N): ");
+                    string response2 = Console.ReadLine().ToLower();
+                    continue_student = (response2 =="y"|| response2 == "yes");
+                    // continue_student = Console.ReadKey().Key == ConsoleKey.Y;
                     Console.WriteLine();
 
                 }
